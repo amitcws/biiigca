@@ -64,168 +64,220 @@ export default function Home() {
   };
 
   // Compact stats - top 6 only, no icons
-  const topStats = [
-    { value: "$550T", label: "Total Tracked Net Worth", change: "+12.3%" },
-    { value: "3,029", label: "Billionaires Tracked", change: "+2.1%" },
-    { value: "$68,750", label: "Avg Net Worth If Distributed", note: "550T ÷ 8B people" },
-    { value: "38%", label: "Tech Industry Share", change: "+5.2%" },
-    { value: "735M", label: "People Starving", change: "-1.8%" },
-    { value: "$2.5T", label: "War Spending / Year", change: "+8.4%" },
+  // const topStats = [
+  //   { value: "$550T", label: "Total Tracked Net Worth", change: "+12.3%" },
+  //   { value: "3,029", label: "Billionaires Tracked", change: "+2.1%" },
+  //   { value: "$68,750", label: "Avg Net Worth If Distributed", note: "550T ÷ 8B people" },
+  //   { value: "38%", label: "Tech Industry Share", change: "+5.2%" },
+  //   { value: "735M", label: "People Starving", change: "-1.8%" },
+  //   { value: "$2.5T", label: "War Spending / Year", change: "+8.4%" },
+  // ];
+
+  const stats = [
+    // Row 1: 5 columns (lg)
+    { value: "3029", label: "Billionaires", row: 1 },
+    { value: "735 Million", label: "Starving", row: 1 },
+    { value: "2.2 Billion", label: "With no clean water", row: 1 },
+    { value: "4.25 Billion", label: "Without healthcare", row: 1 },
+    { value: "12,100", label: "Nuclear weapons", row: 1 },
+
+    // Row 2: 4 columns (md)
+    { value: "2.5 Trillion", label: "$ spent on war / yr", row: 2 },
+    { value: "55 Billion", label: "Factory farm animals", row: 2 },
+    { value: "43 Million", label: "Global refugees", row: 2 },
+    { value: "$20 Trillion $", label: "Total global wealth", row: 2 },
+
+    // Row 3: 3 columns (md), multi-line
+    { value: "-11%", label: ["10 year climate", "change progress"], row: 3 },
+    { value: "-7.5%", label: ["10 year progress", "on biodiversity"], row: 3 },
+    { value: "5", label: "Involved in BiiiG", row: 3 },
   ];
 
   return (
-    <div className="min-h-screen bg-[#fffaf5]">
-      {/* Tight Hero Section */}
-      <section className="px-4 md:px-6 pt-8 pb-6">
-        <div className="container mx-auto max-w-5xl text-center">
-          {/* Main Headline - Updated with two-line format */}
-          <div className="mb-4">
-            <h1 className="text-5xl md:text-6xl font-bold text-[#ef6c00] mb-2">
-              BiiiG
-            </h1>
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-700 leading-tight">
-              Big Impact Innovative
-              <br />
-              Initiatives for Good
-            </h2>
-          </div>
-          
-          {/* Updated Tagline */}
-          <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-            Monitor Initiatives, Innovations, and our Ongoing Collective Impact
+    <>
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-6 text-center">
+        <h1 className="text-2xl md:text-4xl font-medium text-gray-700 mb-2">
+          Big Impact Innovative Initiatives for Good
+        </h1>
+        <p className="text-base md:text-lg text-gray-600 mb-4">
+          Ideate, initiate, innovate and reiterate
+        </p>
+
+        {/* First JOIN NOW Button */}
+        <button
+          onClick={() => setJoinDialogOpen(true)}
+          className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 mb-2 inline-flex items-center gap-2"
+        >
+          <i className="fas fa-envelope" />
+          JOIN NOW
+        </button>
+        <p className="text-sm text-gray-500 mb-6">
+          Join to get notified, track favorites, and help drive change
+        </p>
+
+        {/* Mission Statement */}
+        <div className="max-w-3xl mx-auto mb-6">
+          <p className="text-lg md:text-xl text-gray-800">
+            To get the fastest results to world issues, we need to attract smart,
+          </p>
+          <p className="text-lg md:text-xl text-gray-800">
+            action oriented, problem solving people who simply think differently.
+          </p>
+          <p className="text-2xl font-semibold text-gray-800 mb-6">We do!</p>
+        </div>
+
+        {/* Payment Info */}
+        <div className="max-w-3xl mx-auto mb-6">
+          <p className="text-base md:text-lg text-gray-800">
+            <span className="font-bold underline">Here are just some ways:</span>{" "}
+            BiiiG PAYS You $1 to JOIN! (via PayPal instantly)
+          </p>
+          <p className="text-base md:text-lg text-gray-800">
+            We pay you with increasing frequency every time you achieve fast simple milestones
+          </p>
+          <p className="text-base md:text-lg text-gray-800 mb-4">
+            that make a difference.
           </p>
 
-          {/* Primary JOIN CTA - Very Prominent */}
-          <Button 
+          {/* Second JOIN NOW Button */}
+          <button
             onClick={() => setJoinDialogOpen(true)}
-            size="lg"
-            className="bg-[#ef6c00] hover:bg-[#d66000] text-white px-12 py-6 text-xl font-bold rounded-xl shadow-2xl hover:shadow-3xl mb-8 transition-all"
+            className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 mb-8 inline-flex items-center gap-2"
           >
-            <Mail className="w-6 h-6 mr-3" />
+            <i className="fas fa-envelope" />
             JOIN NOW
-          </Button>
-
-          <p className="text-sm text-gray-500 mb-8">
-            Join to get notified, track favorites, and help drive change
-          </p>
-
-          {/* Compact Search Bar */}
-          <form onSubmit={handleSearch} className="max-w-xl mx-auto">
-            <div className="flex items-center gap-2 bg-white rounded-lg p-2 shadow-md border border-gray-200">
-              <Search className="w-5 h-5 text-gray-400 ml-2" />
-              <Input
-                type="text"
-                placeholder="Search by issue, person, or country"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="flex-1 border-0 focus-visible:ring-0 bg-transparent"
-              />
-              <Button 
-                type="submit"
-                size="sm"
-                className="bg-[#ef6c00] hover:bg-[#d66000] text-white"
-              >
-                Search
-              </Button>
-            </div>
-          </form>
+          </button>
         </div>
-      </section>
 
-      {/* Above-the-Fold Stats - No Heading, No Icons, Ultra Compact */}
-      <section className="px-4 md:px-6 py-6 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            {topStats.map((stat, index) => (
-              <Card 
-                key={index} 
-                className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow bg-white"
-              >
-                <CardContent className="p-4">
-                  <div className="text-2xl md:text-3xl font-bold text-[#ef6c00] mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs text-gray-700 font-medium leading-tight mb-1">
-                    {stat.label}
-                  </div>
-                  {stat.change && (
-                    <div className={`text-xs font-semibold ${
-                      stat.change.startsWith('+') ? 'text-green-600' : 'text-red-600'
-                    }`}>
-                      {stat.change} YoY
-                    </div>
-                  )}
-                  {stat.note && (
-                    <div className="text-xs text-gray-500 mt-1">
-                      {stat.note}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* Track Statement */}
+        <p className="text-base md:text-lg text-gray-800 mb-4">
+          Track issues, Wealth, industries, people, and impact. Discover who is shaping solutions.
+        </p>
 
-      {/* Single Compact Bottom Section - Updated text */}
-      <section className="px-4 md:px-6 py-12 bg-gradient-to-br from-[#fff3e2] to-[#ffe0c0]">
-        <div className="container mx-auto max-w-5xl">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-            <div className="flex-1">
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                Track Issues, Drive Change
-              </h3>
-              <p className="text-gray-700">
-                Monitor the people, wealth, and innovations making a difference. Get involved in BiiiG today.
-              </p>
-            </div>
-            <Button 
-              onClick={() => setJoinDialogOpen(true)}
-              size="lg"
-              className="bg-[#ef6c00] hover:bg-[#d66000] text-white px-10 py-6 text-lg font-bold rounded-xl shadow-xl whitespace-nowrap"
+        {/* Search Bar */}
+        <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-12">
+          <div className="relative flex items-center">
+            <Search className="absolute left-4 w-5 h-5 text-gray-400" />
+            <Input
+              type="text"
+              placeholder="Search by issue, country, person, or anything else"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-24 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-green-200 focus:ring-2 focus:ring-green-200 focus:ring-opacity-50"
+            />
+            <Button
+              type="submit"
+              className="absolute right-2 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300"
             >
-              Join Now
-              <ArrowRight className="ml-2 w-5 h-5" />
+              Search
             </Button>
           </div>
+        </form>
+      </section>
+
+      {/* Stats Section */}
+      <section className="container mx-auto px-4 pb-12">
+        {[1, 2, 3].map((row) => {
+          const rowStats = stats.filter((s) => s.row === row);
+          const isLastRow = row === 3;
+
+          const gridClasses = isLastRow
+            ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto"
+            : row === 1
+            ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-4"
+            : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4";
+
+          return (
+            <div key={row} className={gridClasses}>
+              {rowStats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="bg-white border-2 border-green-500 rounded-lg p-4 text-center"
+                >
+                  <p className="text-2xl md:text-3xl font-bold text-secondary mb-1">
+                    {stat.value}
+                  </p>
+                  {Array.isArray(stat.label) ? (
+                    stat.label.map((line, i) => (
+                      <p key={i} className="text-sm text-textColor">
+                        {line}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="text-sm text-textColor">{stat.label}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          );
+        })}
+      </section>
+
+      {/* Partners Section */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="max-w-xl mx-auto">
+          <div className="mb-8">
+            <img
+              src="images/biig_partnership_structure2.png"
+              alt="BiiiG Partnership Structure"
+              className="w-full max-w-lg mx-auto"
+            />
+          </div>
+          <div className="text-center">
+            <h3 className="text-xl font-semibold text-secondary mb-2">BiiiG useful links</h3>
+            <ul>
+              <li>
+                <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors duration-300 text-lg font-semibold">
+                  our business outline
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors duration-300 text-lg font-semibold">
+                  our financial modelling
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors duration-300 text-lg font-semibold">
+                  our partner modelling <b className="text-black">(local, regional, national)</b>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      {/* Minimal Footer */}
-      <footer className="px-4 md:px-6 py-8 bg-white border-t">
-        <div className="container mx-auto text-center">
-          <div className="flex flex-wrap justify-center gap-6 mb-4 text-sm">
-            <Link to={createPageUrl("Directory")} className="text-gray-600 hover:text-[#ef6c00]">
-              Explore
-            </Link>
-            <Link to={createPageUrl("Compare")} className="text-gray-600 hover:text-[#ef6c00]">
-              Compare
-            </Link>
-            <Link to={createPageUrl("Watchlist")} className="text-gray-600 hover:text-[#ef6c00]">
-              Watchlist
-            </Link>
-            <a href="#" className="text-gray-600 hover:text-[#ef6c00]">About</a>
-            <a href="#" className="text-gray-600 hover:text-[#ef6c00]">Terms</a>
-            <a href="#" className="text-gray-600 hover:text-[#ef6c00]">Privacy</a>
-          </div>
-          <p className="text-gray-500 text-sm">
+      {/* Pre-Footer Navigation */}
+      <section className="bg-gray-50 py-8 border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <nav className="mb-4">
+            <ul className="flex flex-wrap justify-center items-center gap-6 text-gray-600">
+              <li>
+                <a href="#" className="hover:text-green-600 transition-colors duration-300">About</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-green-600 transition-colors duration-300">Terms</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-green-600 transition-colors duration-300">Privacy</a>
+              </li>
+            </ul>
+          </nav>
+          <p className="text-center text-gray-600 text-sm">
             © 2025 BiiiG.ca — Big Impact Innovative Initiatives for Good
           </p>
         </div>
-      </footer>
+      </section>
 
       {/* Email Capture Modal */}
       <Dialog open={joinDialogOpen} onOpenChange={setJoinDialogOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-[#ef6c00]">
-              Join BiiiG
-            </DialogTitle>
+            <DialogTitle className="text-2xl font-bold text-green-600">Join BiiiG</DialogTitle>
             <DialogDescription>
-              Enter your email to get started. We'll send you a link to complete your registration.
+              Enter your email to get started. We'll send you $1 via PayPal + a link to complete registration.
             </DialogDescription>
           </DialogHeader>
-
           {!submitted ? (
             <form onSubmit={handleJoinSubmit} className="space-y-4 py-4">
               <div>
@@ -242,15 +294,13 @@ export default function Home() {
                   required
                 />
               </div>
-              
-              <Button 
+              <Button
                 type="submit"
-                className="w-full bg-[#ef6c00] hover:bg-[#d66000] text-white font-semibold py-3"
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3"
                 disabled={submitEmailMutation.isPending}
               >
-                {submitEmailMutation.isPending ? "Sending..." : "Join Now"}
+                {submitEmailMutation.isPending ? "Sending..." : "Join Now & Get $1"}
               </Button>
-
               <p className="text-xs text-gray-500 text-center">
                 By joining, you agree to receive updates from BiiiG. We respect your privacy.
               </p>
@@ -265,12 +315,12 @@ export default function Home() {
                 We sent an email to <span className="font-semibold">{email}</span>
               </p>
               <p className="text-sm text-gray-500 mt-2">
-                Click the link in the email to finish your registration and unlock full features.
+                Click the link to finish registration and claim your $1 PayPal reward.
               </p>
             </div>
           )}
         </DialogContent>
       </Dialog>
-    </div>
+    </>
   );
 }

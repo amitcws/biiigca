@@ -9,7 +9,19 @@ module.exports = {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
+		fontFamily: {
+			myriad: ["Myriad Pro", "Arial", "sans-serif"],
+		},
+		backgroundImage: {
+			orangePurple: "linear-gradient(135deg, #ef6c00 0%, #e91e63 100%)",
+		},
   		colors: {
+			secondary: "#ef6c00",
+			primary: "#ffffff",
+			textColor: "#000000",
+			backgroundColorLight: "#fffaf5",
+			backgroundColorDeep: "#ffe8cf",
+			footerBackgroundColor: "#192230",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -20,14 +32,14 @@ module.exports = {
   				DEFAULT: 'hsl(var(--popover))',
   				foreground: 'hsl(var(--popover-foreground))'
   			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
+  			// primary: {
+  			// 	DEFAULT: 'hsl(var(--primary))',
+  			// 	foreground: 'hsl(var(--primary-foreground))'
+  			// },
+  			// secondary: {
+  			// 	DEFAULT: 'hsl(var(--secondary))',
+  			// 	foreground: 'hsl(var(--secondary-foreground))'
+  			// },
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
   				foreground: 'hsl(var(--muted-foreground))'
